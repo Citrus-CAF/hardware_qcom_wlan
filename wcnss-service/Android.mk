@@ -24,6 +24,10 @@ ifeq ($(strip $(TARGET_USES_QCOM_WCNSS_QMI)),true)
 ifneq ($(QCPATH),)
 include $(CLEAR_VARS)
 
+ifeq ($(TARGET_USES_WCNSS_MAC_ADDR_REV),true)
+LOCAL_CFLAGS += -DWCNSS_QMI_MAC_ADDR_REV
+endif
+
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi-framework/inc
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/services
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/platform
