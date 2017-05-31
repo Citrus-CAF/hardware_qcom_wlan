@@ -42,13 +42,14 @@ ifeq ($(strip $(TARGET_USES_QCOM_WCNSS_QMI)),true)
 ifneq ($(QCPATH),)
 include $(CLEAR_VARS)
 
+LOCAL_CFLAGS += -DWCNSS_QMI
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi-framework/inc
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/services
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/platform
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/inc
 
 LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
-LOCAL_SHARED_LIBRARIES += libqmiservices libqmi_cci libidl
+LOCAL_SHARED_LIBRARIES += libqmiservices libqmi_cci
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/libmdmdetect/inc
 LOCAL_SHARED_LIBRARIES += libmdmdetect
 
